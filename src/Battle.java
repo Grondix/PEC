@@ -57,7 +57,7 @@ public class Battle {
 				break;
 		}
 		
-		for(int i = 0; i<7;i++) {
+		for(int i = 0; i<1;i++) {
 			
 			room = r.nextInt(3)+1;
 			switch (room) {
@@ -89,11 +89,12 @@ public class Battle {
 					e.setSPD(4);
 					break;
 			}
+			System.out.println("Your Health:" + h.getHP() + " Enemy Health:" + e.getHP());
+			
 			int t=0;
 			while (e.getHP()>0 && h.getHP()>0) {
 				t++;
-				System.out.println("Health:" + h.getHP() + "Enemy Health:" + e.getHP());
-				System.out.println(t);
+				
 				hfATK = h.getATK() - e.getDEF();
 				hfACC = h.getACC() - e.getAGL();
 				efATK = e.getATK() - h.getDEF();
@@ -104,23 +105,44 @@ public class Battle {
 					hit = r.nextInt(20)+1;
 					if (hit<h.getATK()+1) {
 						e.setHP(e.getHP()-hfATK);
-						System.out.println("Enemy health -" + efATK);
+						System.out.println("Enemy health -" + hfATK);
+						System.out.println("Your Health:" + h.getHP() + " Enemy Health:" + e.getHP());
+						System.out.println();
 					}
 					else {
 						System.out.println("You've missed");
+						System.out.println();
 					}
 				}
-				else if (t % e.getSPD()==0) {
+					if (t % e.getSPD()==0) {
 					System.out.println("Enemy attacked");
 					hit = r.nextInt(20)+1;
 					if (hit<e.getATK()+1) {
 						h.setHP(h.getHP()-efATK);
-						System.out.println("Health -" + efATK);
+						System.out.println("Your Health -" + efATK);
+						System.out.println("Your Health:" + h.getHP() + " Enemy Health:" + e.getHP());
+						System.out.println();
 					}
 					else {
 						System.out.println("Enemy missed");
+						System.out.println();
 					}
 				}
+					if (e.getHP()<1) {
+						System.out.println("YOU'VE WON!");
+					}
+					else if (h.getHP()<1) {
+						System.out.println("                                          ");
+						System.out.println("   YYY   YYY   OOOO   UUU    UUU          DDDDDD      III   EEEEEEEEEE  DDDDDD      ");
+						System.out.println("    Y     Y   O    O   U      U            D    D      I     E       E   D    D     ");
+						System.out.println("     Y   Y   O      O  U      U            D     D     I     E           D     D    ");
+						System.out.println("      YYY    O      O  U      U            D      D    I     EEEEEEE     D      D   ");
+						System.out.println("       Y     O      O  U      U            D      D    I     E           D      D   ");
+						System.out.println("       Y     O      O  U      U            D      D    I     E           D      D   ");
+						System.out.println("       Y      O    O    U    U            ");
+						System.out.println("       Y       OOOO      UUUU             ");
+						System.out.println("                                          ");
+					}
 			}
 			System.out.println("Battle ended");
 		}
