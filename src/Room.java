@@ -6,6 +6,7 @@ public class Room {
 	int ATK;
 	int ACC;
 	int AGL;
+	int SPD;
 	
 	public int getHP() {
 		return HP;
@@ -37,14 +38,21 @@ public class Room {
 	public void setAGL(int aGL) {
 		AGL = aGL;
 	}
+	public int getSPD() {
+		return SPD;
+	}
+	public void setSPD(int sPD) {
+		SPD = sPD;
+	}
 	
-	public Room(int hP, int dEF, int aTK, int aCC, int aGL) {
+	public Room(int hP, int dEF, int aTK, int aCC, int aGL, int sPD) {
 		super();
 		HP = hP;
 		DEF = dEF;
 		ATK = aTK;
 		ACC = aCC;
 		AGL = aGL;
+		SPD = sPD;
 	}
 	
 	
